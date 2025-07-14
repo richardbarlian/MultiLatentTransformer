@@ -1,0 +1,6 @@
+venv/*
+venv
+data/dataset.txt
+logs/*
+data/dataset.txt
+__pycache__/
