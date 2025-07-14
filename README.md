@@ -62,7 +62,7 @@ The project was born out of a desire to truly understand AI systems — not by u
 ## ▶️ How to Use
 
 ```bash
-# Clone the repo and install dependencies
+# Clone the repo and install dependencies (preferably in a virtual env like Anaconda)
 pip install -r requirements.txt
 
 # Download dataset from Project Gutenberg
