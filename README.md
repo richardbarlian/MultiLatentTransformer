@@ -1,38 +1,34 @@
 # 🧠 Tiny Multi-Latent Transformer
 
-> A self-driven exploration into generative modeling, inspired by the _Multi-Latent Transformer_ paper and the internals of GPT-style transformers.  
-> Built entirely from scratch using **PyTorch** and **PyTorch Lightning**.
+- A self-driven exploration into generative modeling
+- Inspired by the _Multi-Latent Transformer_ paper and GPT-style transformer internals
+- Built entirely from scratch using **PyTorch** and **PyTorch Lightning**
 
----
+## Overview
 
-## 🚀 Overview
+- Hobby deep learning initiative implementing a **decoder-only transformer**
+- Incorporates modern research-backed improvements
+- Serves as a minimal, modular playground for token-level language modeling
+- Goal was to understand AI systems by reconstructing them from first principles
 
-This project is a **hobby deep learning initiative** where I implemented and trained a decoder-only transformer with **modern research-backed improvements**. Inspired by the [_TransMLA: Multi-Head Latent Attention Is All You Need_ (2025)](https://arxiv.org/abs/2502.07864), it serves as a minimal and modular playground for token-level language modeling and advanced attention designs.
+## Key Features & Contributions
 
-The project was born out of a desire to truly understand AI systems — not by using black-box APIs, but by reconstructing them from first principles.
+### Research-Inspired Design
 
----
+- Built on the **Multi-Latent Transformer** concept for parallel reasoning via multiple latent attention pathways
+- Adopts a **post-LayerNorm** design for better stability, following the "Attention is All You Need" structure
 
-## 📌 Key Features & Contributions
+### Engineering Enhancements
 
-### ✅ Research-Inspired Design
+- **Memory-efficient data loading** via `PackedDataset` with overlapping token sequences
+- **Cosine annealing learning rate schedule** with linear warm-up
+- **GPT-style parameter initialization** and grouped weight decay for stable convergence
+- **Integrated with TensorBoard** for real-time logging of training curves and metrics
+- **Validation perplexity evaluation** at regular intervals
+- **Early stopping and model checkpointing** for fail-safe experiments
+- Created `scraper.py` for downloading and preprocessing public domain books from **Project Gutenberg**
 
-- Built around the **Multi-Latent Transformer** concept — enabling multiple latent attention pathways for parallel reasoning.
-- Closely follows the "Attention is All You Need" paper, but adopts a **post-LayerNorm** design for better stability.
-
-### 🔧 Engineering Enhancements I Added
-
-- ⚡️ **Memory-efficient data loading** via `PackedDataset` with overlapping (stride-based) token sequences.
-- 🧠 **Cosine annealing learning rate schedule** with linear warm-up, implemented using PyTorch's `LambdaLR`.
-- 🧩 **GPT-style parameter initialization** and grouped weight decay for stable convergence.
-- 📈 Integrated with **TensorBoard** for simple, real-time logging of training curves and metrics.
-- 🧪 **Validation perplexity evaluation** at regular intervals and end of training.
-- 🛑 **Early stopping and model checkpointing** for fail-safe experiments.
-- 🕸️ Created `scraper.py` to download and preprocess public domain books from **Project Gutenberg**.
-
----
-
-## 🛠️ Tech Stack
+## Technical Stack 🛠️
 
 - `PyTorch` + `PyTorch Lightning`
 - `tiktoken` for GPT-2 style BPE tokenization
@@ -40,12 +36,10 @@ The project was born out of a desire to truly understand AI systems — not by u
 - TensorBoard + Rich CLI logging
 - Modular config-driven experiment management
 
----
-
-## 📊 Training Setup
+## Training Setup
 
 | Setting             | Value           |
-| ------------------- | --------------- |
+| :------------------ | :-------------- |
 | Block Size          | 512 tokens      |
 | Batch Size          | 20              |
 | Max Iterations      | 18,370          |
@@ -57,9 +51,7 @@ The project was born out of a desire to truly understand AI systems — not by u
 | Accumulated Batches | 4               |
 | Final Metric        | Perplexity      |
 
----
-
-## ▶️ How to Use
+## How to Use
 
 ```bash
 # Clone the repo and install dependencies (preferably in a virtual env like Anaconda)
